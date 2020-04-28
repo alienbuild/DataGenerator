@@ -76,12 +76,12 @@ const applicationGenerator = () => {
           "coverBasis": [
             {
               "name": "${chancerGen > 0.66 ? 'First life' : chancerGen > 0.33 ? 'Cover basis 2' : 'Cover basis 3'}",
-              "premiumAmount": ${Math.floor(Math.random() * 200)} + '.23',
+              "premiumAmount": ${Math.floor(Math.random() * 200)}.23,
               "term": "${Math.floor(Math.random() * 10) + ' years'}"
             },
             {
               "name": "Income protection",
-              "premiumAmount": ${Math.floor(Math.random() * 200)} + '.23',
+              "premiumAmount": ${Math.floor(Math.random() * 200)}.23,
               "term": "${Math.floor(Math.random() * 10) + ' years'}"
             }
           ],
@@ -89,22 +89,22 @@ const applicationGenerator = () => {
             {
               "name": "${humanNames.allRandom() + ' ' + humanNames.allRandom()}",
               "uid": ${Math.floor(Math.random() * 50001)},
-              "premium": ${Math.floor(Math.random() * 200)} + '.23',
-              "amount": ${Math.floor(Math.random() * 1000)} + '.00',
+              "premium": ${Math.floor(Math.random() * 200)}.23,
+              "amount": ${Math.floor(Math.random() * 1000)}.00,
               "benefits": [{
                 "name": "Life Protection",
                 "minAge": 18,
                 "ageAtExpiry": 90,
                 "minimumTerm": 1,
-                "amount": ${Math.floor(Math.random() * 200)} + '.23',
-                "premium": ${Math.floor(Math.random() * 200)} + '.23',
-                "id": ${Math.floor(Math.random() * 2000)}'
+                "amount": ${Math.floor(Math.random() * 200)}.23,
+                "premium": ${Math.floor(Math.random() * 200)}.23,
+                "id": ${Math.floor(Math.random() * 2000)}
               }]
             },
             {
               "name": "${humanNames.allRandom() + ' ' + humanNames.allRandom()}",
               "uid": ${Math.floor(Math.random() * 50001)},
-              "premium": ${Math.floor(Math.random() * 500)} + '.23',
+              "premium": ${Math.floor(Math.random() * 500)}.23,
               "amount": ${Math.floor(Math.random() * 1000)} + '.00',
               "benefits": [{
                 "name": "Income Protection",
@@ -113,7 +113,7 @@ const applicationGenerator = () => {
                 "minimumTerm": 1,
                 "amount": 1000,
                 "premium": 500,
-                "id": ${Math.floor(Math.random() * 2000)}'
+                "id": ${Math.floor(Math.random() * 2000)}
               }]
             }
           ]
