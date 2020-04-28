@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const prompt = require('prompt');
 const colors = require("colors/safe");
+const humanNames = require('human-names');
+const moment = require('moment');
 
 // Did you start correctly?
 prompt.message = colors.magenta('Data generator reporting for duty.');
@@ -32,7 +34,7 @@ const applicationGenerator = () => {
     const randDate = moment(new Date(+new Date() - Math.floor(Math.random() * 10000000000)));
     console.log('------------------------------------------');
     let i;
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 100; i++) {
         fs.appendFileSync('applications.json', `{
           "watchList": ${Math.floor(Math.random() * 2)},
           "policyId": ${Math.floor(Math.random() * 9999999)},
@@ -46,10 +48,75 @@ const applicationGenerator = () => {
           "created": "${randDate.format('MM/DD/YYYY' + ' HH:MM a')}",
           "documents": [{
             "documentName": "${chancerGen > 0.66 ? 'Document 1' : chancerGen > 0.33 ? 'Document 2' : 'Document 3'},",
-            "category": "Category 2",
-            "docCreated": "01/02/2020 23:01 pm",
-            "docAvailable": "01/07/2020 23:01 pm"
+            "category": "${chancerGen > 0.66 ? 'Acceptance' : chancerGen > 0.33 ? 'Category 1' : 'Category 2'}",
+            "docCreated": "${randDate.format('MM/DD/YYYY' + ' HH:MM a')}",
+            "docAvailable": "${randDate.format('MM/DD/YYYY' + ' HH:MM a')}"
           }],
+          "outstandingActions": [{
+            "name" : "${chancerGen > 0.66 ? 'Answer question' : 
+            chancerGen > 0.33 ? 'Accept terms, confirm start date GP details, bank details' : 
+                'Complete Underwriting questionnaire (416kb)'},",
+            "type" : "link-question",
+            "uri" : 999,
+            "uidFor" : 50001
+          }, {
+            "name" : "Fill in form",
+            "type" : "link-question",
+            "uri" : 999,
+            "uidFor" : 50001
+          }],
+          "policyHolder": [
+            "${humanNames.allRandom() + ' ' + humanNames.allRandom()}",
+            "${humanNames.allRandom() + ' ' + humanNames.allRandom()}"
+          ],
+          "claimType": [
+            "Joint life first death",
+            "Joint life second death"
+          ],
+          "coverBasis": [
+            {
+              "name": "${chancerGen > 0.66 ? 'First life' : chancerGen > 0.33 ? 'Cover basis 2' : 'Cover basis 3'}",
+              "premiumAmount": ${Math.floor(Math.random() * 200)} + '.23',
+              "term": "${Math.floor(Math.random() * 10) + ' years'}"
+            },
+            {
+              "name": "Income protection",
+              "premiumAmount": ${Math.floor(Math.random() * 200)} + '.23',
+              "term": "${Math.floor(Math.random() * 10) + ' years'}"
+            }
+          ],
+          "livesAssured": [
+            {
+              "name": "${humanNames.allRandom() + ' ' + humanNames.allRandom()}",
+              "uid": ${Math.floor(Math.random() * 50001)},
+              "premium": ${Math.floor(Math.random() * 200)} + '.23',
+              "amount": ${Math.floor(Math.random() * 1000)} + '.00',
+              "benefits": [{
+                "name": "Life Protection",
+                "minAge": 18,
+                "ageAtExpiry": 90,
+                "minimumTerm": 1,
+                "amount": ${Math.floor(Math.random() * 200)} + '.23',
+                "premium": ${Math.floor(Math.random() * 200)} + '.23',
+                "id": ${Math.floor(Math.random() * 2000)}'
+              }]
+            },
+            {
+              "name": "${humanNames.allRandom() + ' ' + humanNames.allRandom()}",
+              "uid": ${Math.floor(Math.random() * 50001)},
+              "premium": ${Math.floor(Math.random() * 500)} + '.23',
+              "amount": ${Math.floor(Math.random() * 1000)} + '.00',
+              "benefits": [{
+                "name": "Income Protection",
+                "minAge": 18,
+                "ageAtExpiry": 90,
+                "minimumTerm": 1,
+                "amount": 1000,
+                "premium": 500,
+                "id": ${Math.floor(Math.random() * 2000)}'
+              }]
+            }
+          ]
         },\r\n`);
     }
 };
