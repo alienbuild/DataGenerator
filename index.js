@@ -105,7 +105,7 @@ const applicationGenerator = () => {
               "name": "${humanNames.allRandom() + ' ' + humanNames.allRandom()}",
               "uid": ${Math.floor(Math.random() * 50001)},
               "premium": ${Math.floor(Math.random() * 500)}.23,
-              "amount": ${Math.floor(Math.random() * 1000)} + '.00',
+              "amount": ${Math.floor(Math.random() * 1000)}.00,
               "benefits": [{
                 "name": "Income Protection",
                 "minAge": 18,
