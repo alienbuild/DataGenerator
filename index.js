@@ -41,21 +41,19 @@ const applicationGenerator = () => {
           "uid": 555,
           "uan": 555,
           "applicationID": "L${Math.floor(Math.random() * 99999999999)}",
-          "status": "${chancerGen > 0.8 ? 'Further evidence' : chancerGen > 0.7 ? 'Under assessment' : chancerGen > 0.6
-                    ? 'Descision made' : chancerGen > 0.5 ? 'Awaiting documents' : chancerGen > 0.3 ? 'Awaiting input'
+          "status": "${Math.random() > 0.8 ? 'Further evidence' : Math.random() > 0.7 ? 'Under assessment' : Math.random() > 0.6
+                    ? 'Descision made' : Math.random() > 0.5 ? 'Awaiting documents' : Math.random() > 0.3 ? 'Awaiting input'
                     : 'Complete'}",
           "lastUpdated": "${randDate.format('MM/DD/YYYY' + ' HH:MM a')}",
           "created": "${randDate.format('MM/DD/YYYY' + ' HH:MM a')}",
           "documents": [{
-            "documentName": "${chancerGen > 0.66 ? 'Document 1' : chancerGen > 0.33 ? 'Document 2' : 'Document 3'},",
-            "category": "${chancerGen > 0.66 ? 'Acceptance' : chancerGen > 0.33 ? 'Category 1' : 'Category 2'}",
+            "documentName": "${Math.random() > 0.66 ? 'Document 1' : Math.random() > 0.33 ? 'Document 2' : 'Document 3'},",
+            "category": "${Math.random() > 0.66 ? 'Acceptance' : Math.random() > 0.33 ? 'Category 1' : 'Category 2'}",
             "docCreated": "${randDate.format('MM/DD/YYYY' + ' HH:MM a')}",
             "docAvailable": "${randDate.format('MM/DD/YYYY' + ' HH:MM a')}"
           }],
           "outstandingActions": [{
-            "name" : "${chancerGen > 0.66 ? 'Answer question' : 
-            chancerGen > 0.33 ? 'Accept terms, confirm start date GP details, bank details' : 
-                'Complete Underwriting questionnaire (416kb)'},",
+            "name" : "${Math.random() > 0.66 ? 'Answer question' : Math.random() > 0.33 ? 'Accept terms, confirm start date GP details, bank details' : 'Complete Underwriting questionnaire (416kb)'},",
             "type" : "link-question",
             "uri" : 999,
             "uidFor" : 50001
@@ -75,7 +73,7 @@ const applicationGenerator = () => {
           ],
           "coverBasis": [
             {
-              "name": "${chancerGen > 0.66 ? 'First life' : chancerGen > 0.33 ? 'Cover basis 2' : 'Cover basis 3'}",
+              "name": "${Math.random() > 0.66 ? 'First life' : Math.random() > 0.33 ? 'Cover basis 2' : 'Cover basis 3'}",
               "premiumAmount": ${Math.floor(Math.random() * 200)}.23,
               "term": "${Math.floor(Math.random() * 10) + ' years'}"
             },
